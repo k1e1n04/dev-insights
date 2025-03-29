@@ -1,4 +1,4 @@
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 
 /**
  * GitHub Copilot にリクエストを送信する関数
@@ -7,14 +7,14 @@ import * as vscode from 'vscode';
  * @returns - 言語モデルのチャットレスポンス
  */
 export const sendRequest = async (
-	messages: vscode.LanguageModelChatMessage[],
-	token: vscode.CancellationToken,
+  messages: vscode.LanguageModelChatMessage[],
+  token: vscode.CancellationToken,
 ): Promise<vscode.LanguageModelChatResponse> => {
-	const [model] = await vscode.lm.selectChatModels({
-		vendor: 'copilot',
-		family: 'gpt-4o',
-	});
+  const [model] = await vscode.lm.selectChatModels({
+    vendor: "copilot",
+    family: "gpt-4o",
+  });
 
-	const chatResponse = await model.sendRequest(messages, {}, token);
-	return chatResponse;
+  const chatResponse = await model.sendRequest(messages, {}, token);
+  return chatResponse;
 };
