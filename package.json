@@ -40,11 +40,10 @@
       }
     ]
   },
-  "main": "./dist/extension.js",
+  "main": "./out/extension.js",
   "scripts": {
     "vscode:prepublish": "npm run compile",
-    "build": "tsc -p ./",
-    "compile": "esbuild src/extension.ts --bundle --outfile=dist/extension.js --platform=node --external:vscode --loader:.node=file",
+    "compile": "tsc -p ./",
     "lint": "eslint",
     "watch": "tsc -watch -p ./",
     "fmt": "prettier --write .",
@@ -67,8 +66,6 @@
     "@types/vscode": "^1.95.0",
     "@vscode/test-cli": "^0.0.10",
     "@vscode/test-electron": "^2.4.1",
-    "esbuild": "^0.25.1",
-    "esbuild-node-loader": "^0.8.0",
     "eslint": "^9.13.0",
     "prettier": "^3.5.3",
     "sinon": "^20.0.0",

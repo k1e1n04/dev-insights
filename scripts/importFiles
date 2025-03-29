@@ -1,4 +1,0 @@
-#/bin/bash
-
-read -p "ChromaDBのURLを入力してください: " CHROMA_URL
-

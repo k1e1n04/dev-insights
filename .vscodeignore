@@ -10,3 +10,10 @@ vsc-extension-quickstart.md
 **/*.map
 **/*.ts
 **/*.js.map
+out/tests/**
+docker-compose.yml
+sample-files/**
+chromadb-data/**
+.github/**
+.prettierignore
+.eslint.config.mjs
