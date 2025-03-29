@@ -1,4 +1,5 @@
 import * as vscode from 'vscode';
+import * as fs from 'fs';
 import { getFiles } from '../utils/getFiles';
 import { VectorDBClient } from '../db-clients/vectorDBClient';
 
@@ -27,7 +28,8 @@ export const importFiles = async (
 
 		if (files.length > 0) {
 			for (const file of files) {
-				await vectorDB.importFiles(file);
+				const fileContent = await fs.promises.readFile(file, 'utf-8');
+				await vectorDB.importFiles(file, fileContent);
 			}
 			stream.markdown(
 				'ディレクトリ内のすべてのファイルをベクターデータベースにインポートしました。',

@@ -1,7 +1,4 @@
 import { ChromaClient, Collection, Metadata } from 'chromadb';
-import * as vscode from 'vscode';
-import * as path from 'path';
-import * as fs from 'fs';
 import * as crypto from 'crypto';
 import { VectorDBClient } from './vectorDBClient';
 
@@ -30,16 +27,14 @@ export class ChromaDBClient implements VectorDBClient {
 				name: VECTOR_DB_COLLECTION_NAME,
 			});
 		} catch (error) {
-			vscode.window.showErrorMessage(
-				`ベクターデータベースのコレクション作成に失敗しました: ${error}`,
+			throw new Error(
+				`コレクションの初期化に失敗しました: ${error}`,
 			);
 		}
 	}
 
-	async importFiles(filePath: string) {
+	async importFiles(filePath: string, fileContent: string) {
 		try {
-			const fileContent = await fs.promises.readFile(filePath, 'utf-8');
-
 			// ファイルパスをIDとして使用
 			const documentId = crypto.createHash('md5').update(filePath).digest('hex');
 
@@ -64,9 +59,6 @@ export class ChromaDBClient implements VectorDBClient {
 					documents: [fileContent],
 					metadatas: [metadata],
 				});
-				vscode.window.showInformationMessage(
-					`${path.basename(filePath)} のデータを更新しました。`
-				);
 			} else {
 				// 新規データとして追加
 				await this.collection.add({
@@ -74,12 +66,9 @@ export class ChromaDBClient implements VectorDBClient {
 					documents: [fileContent],
 					metadatas: [metadata],
 				});
-				vscode.window.showInformationMessage(
-					`${path.basename(filePath)} をベクターデータベースにインポートしました。`
-				);
 			}
 		} catch (error) {
-			vscode.window.showErrorMessage(`ドキュメントのインポートに失敗しました: ${error}`);
+			throw new Error(`ドキュメントのインポートに失敗しました: ${error}`);
 		}
 	}
 
@@ -97,10 +86,9 @@ export class ChromaDBClient implements VectorDBClient {
 				'関連するドキュメントは見つかりませんでした。'
 			);
 		} catch (error) {
-			vscode.window.showErrorMessage(
+			throw new Error(
 				`ベクターデータベースの検索に失敗しました: ${error}`,
 			);
-			return '検索中にエラーが発生しました。';
 		}
 	}
 }

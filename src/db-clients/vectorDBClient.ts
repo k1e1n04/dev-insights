@@ -11,7 +11,7 @@ export interface VectorDBClient {
 	 * ファイルをベクターデータベースにインポート
 	 * @param fileContent - インポートするファイルの内容
 	 */
-	importFiles(fileContent: string): Promise<void>;
+	importFiles(filePath: string, fileContent: string): Promise<void>;
 
 	/**
 	 * ドキュメントを検索
