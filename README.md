@@ -1,8 +1,14 @@
-# DevInsight
+<h1 align="center">Dev Insights</h1>
+<p align="center">
+    <br />
+    このVsCode拡張機能は、VsCodeの<a href="https://code.visualstudio.com/api/extension-guides/language-model">言語モデルAPI</a>を使用して、GtiHub Copilotを拡張することでローカル環境でRAGを作成することを目的としています。
+</p>
 
-## 概要
-
-このVsCode拡張機能は、VsCodeの[言語モデルAPI](https://code.visualstudio.com/api/extension-guides/language-model)を使用して、GtiHub Copilotを拡張することでローカル環境でRAGを作成することを目的としています。
+<p align="center">
+  <a href="https://github.com/k1e1n04/dev-insights/blob/main/LICENSE" target="_blank">
+      <img src="https://img.shields.io/static/v1?label=license&message=Apache 2.0&color=white" alt="License">
+  </a>
+</p>
 
 ## サポートするモデル
 
