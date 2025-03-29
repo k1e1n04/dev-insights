@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"module": "commonjs",
+		"target": "ES2022",
+		"lib": ["ES2022", "DOM"],
+		"sourceMap": true,
+		"rootDir": "src",
+		"strict": true,
+		"outDir": "out",
+		"jsx": "react",
+		"jsxFactory": "vscpp",
+		"jsxFragmentFactory": "vscppf",
+	},
+	"exclude": ["node_modules"]
+}
