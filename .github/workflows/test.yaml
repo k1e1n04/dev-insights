@@ -43,7 +43,9 @@ jobs:
         run: |
           npm ci
 
-      - name: Run Tests
+      - name: Run Tests in Headless Mode
+        env:
+          DISPLAY: ":99"
         run: |
           npm run compile
           npm run test
