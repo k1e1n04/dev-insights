@@ -43,11 +43,14 @@ jobs:
         run: |
           npm ci
 
-      - name: Setup Virtual Display (xvfb)
+      - name: Setup Virtual Display (Xvfb)
         run: |
           sudo apt-get update
           sudo apt-get install -y xvfb
+          Xvfb :99 -screen 0 1024x768x24 &
 
-      - name: Run Tests with xvfb
+      - name: Run Tests
+        env:
+          DISPLAY: :99
         run: |
-          xvfb-run --auto-servernum --server-args="-screen 0 1024x768x24" npm run compile && npm run test
+          npm run compile && npm run test
