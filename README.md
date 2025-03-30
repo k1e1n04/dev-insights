@@ -24,6 +24,18 @@
 
 ※1: OpenAIのAPIキーを利用したEmbeddingはサポートしていません。
 
+## 利用方法
+
+1. GitHub Copilot Chatの拡張機能をインストール
+2. 本拡張機能をインストール
+3. 任意の環境にChromaDBを起動(Dockerの場合[docker-compose.yml](./docker-compose.yml)を参照)
+  ```bash
+  docker-compose up -d
+  ```
+4. GitHub Copilot Chatを起動
+5. `/importFiles`コマンドを実行し、インポートしたいディレクトリを選択
+6. `@devinsights`をメンションし、質問を入力
+
 ## 機能
 
 VsCode の GitHub Copilot Chat 内で`@devinsight`をメンションすることで、対話が開始されます。
@@ -50,6 +62,7 @@ VsCode の GitHub Copilot Chat 内で`@devinsight`をメンションすること
 - 本拡張機能はGitHub Copilot Chatを利用している方のみ使用可能です。
 - 生成された回答は、必ずしも正確であるとは限りません。生成されたコードは、必ずご自身で確認してください。
 - 生成されたソースコード・ドキュメントは基本的には利用者の著作物となりますが、GitHub Copilotの利用規約に従ってください。
+- ブラウザ版のVSCodeでの動作はサポートしていません。
 
 ## 免責事項
 
