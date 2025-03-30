@@ -18,9 +18,9 @@
 
 ## サポートするベクターDB
 
-| DB | Embeddingモデル |
-| -------------- | ---------------- |
-| ChromaDB       | `all-MiniLM-L6-v2` ※1 |
+| DB       | Embeddingモデル       |
+| -------- | --------------------- |
+| ChromaDB | `all-MiniLM-L6-v2` ※1 |
 
 ※1: OpenAIのAPIキーを利用したEmbeddingはサポートしていません。
 
@@ -29,9 +29,11 @@
 1. GitHub Copilot Chatの拡張機能をインストール
 2. 本拡張機能をインストール
 3. 任意の環境にChromaDBを起動(Dockerの場合[docker-compose.yml](./docker-compose.yml)を参照)
-  ```bash
-  docker-compose up -d
-  ```
+
+```bash
+docker-compose up -d
+```
+
 4. GitHub Copilot Chatを起動
 5. `/importFiles`コマンドを実行し、インポートしたいディレクトリを選択
 6. `@devinsights`をメンションし、質問を入力

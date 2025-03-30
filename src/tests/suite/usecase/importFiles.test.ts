@@ -12,7 +12,6 @@ suite("importFiles Tests", () => {
   let streamStub: vscode.ChatResponseStream;
   let readFileStub: sinon.SinonStub;
 
-
   setup(() => {
     streamStub = {
       markdown: sinon.stub().resolves(),
