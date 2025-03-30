@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
 import { sendRequest } from "../copilot/sendRequest";
 import { VectorDBClient } from "../db-clients/vectorDBClient";
+import { MAX_RESULTS } from "../settings/settings";
 
 /**
  * ユーザーの質問に対する回答を生成する関数
@@ -16,7 +17,7 @@ export const generateAnswer = async (
   token: vscode.CancellationToken,
 ): Promise<void> => {
   // ベクトルDBから関連するドキュメントを検索
-  const vectorResults = await vectorDB.searchDocuments(prompt, 5);
+  const vectorResults = await vectorDB.searchDocuments(prompt, MAX_RESULTS);
 
   // 言語モデルのためのメッセージを準備
   const messages = [

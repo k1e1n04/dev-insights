@@ -21,6 +21,11 @@
           "type": "string",
           "default": "http://localhost:8000",
           "description": "VectorDB のエンドポイントを指定します。"
+        },
+        "devInsights.documentVectorDB.maxResults": {
+          "type": "number",
+          "default": 5,
+          "description": "VectorDB から取得する最大結果数を指定します。"
         }
       }
     },
