@@ -17,3 +17,39 @@ chromadb-data/**
 .github/**
 .prettierignore
 .eslint.config.mjs
+esbuild.mjs
+replace-chromadb-plugin.mjs
+node_modules/**
+# 以下のモジュールはうまくバンドルできないので.vscodeignoreから除外する
+# findDependency.shで見つけられるモジュール
+!node_modules/chromadb-default-embed/**
+!node_modules/sharp/**
+!node_modules/onnxruntime-node/**
+!node_modules/onnxruntime-web/**
+!node_modules/onnxruntime-common/**
+!node_modules/semver/**
+!node_modules/detect-libc/**
+!node_modules/color/**
+!node_modules/color-convert/**
+!node_modules/color-name/**
+!node_modules/color-string/**
+!node_modules/flatbuffers/**
+!node_modules/guid-typescript/**
+!node_modules/long/**
+!node_modules/platform/**
+!node_modules/protobufjs/**
+!node_modules/@protobufjs/aspromise/**
+!node_modules/@protobufjs/base64/**
+!node_modules/@protobufjs/codegen/**
+!node_modules/@protobufjs/eventemitter/**
+!node_modules/@protobufjs/fetch/**
+!node_modules/@protobufjs/float/**
+!node_modules/@protobufjs/inquire/**
+!node_modules/@protobufjs/path/**
+!node_modules/@protobufjs/pool/**
+!node_modules/@protobufjs/utf8/**
+!node_modules/@types/node/**
+!node_modules/undici-types/**
+# findDependency.shでは見つけられない
+!node_modules/simple-swizzle/**
+!node_modules/is-arrayish/**
