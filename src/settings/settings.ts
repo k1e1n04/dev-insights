@@ -6,3 +6,7 @@ export const DB_ENDPOINT: string = config.get(
   "documentVectorDB.endpoint",
   "http://localhost:8000",
 );
+export const MAX_RESULTS: number = config.get(
+  "documentVectorDB.maxResults",
+  5,
+);
