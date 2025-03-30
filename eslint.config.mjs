@@ -4,7 +4,7 @@ import stylistic from "@stylistic/eslint-plugin";
 
 export default tseslint.config(
   {
-    ignores: [".vscode-test", "out"],
+    ignores: [".vscode-test", "out", "esbuild.mjs", "replace-chromadb-plugin.mjs", "dist"],
   },
   {
     files: ["**/*.{js,mjs,cjs,ts,jsx,tsx}"],
