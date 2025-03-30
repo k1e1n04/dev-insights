@@ -2,7 +2,7 @@
   "name": "devinsights",
   "displayName": "Dev Insights",
   "description": "Github Copilot Chatを拡張して手軽にRAGを実現するためのVSCode拡張機能です。",
-  "publisher": "Ken Ishii",
+  "publisher": "KenIshii",
   "version": "0.1.0",
   "engines": {
     "vscode": "^1.95.0"
