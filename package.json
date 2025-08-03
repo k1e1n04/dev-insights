@@ -3,7 +3,7 @@
   "displayName": "Dev Insights",
   "description": "Github Copilot Chatを拡張して手軽にRAGを実現するためのVSCode拡張機能です。",
   "publisher": "KenIshii",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "engines": {
     "vscode": "^1.95.0"
   },
@@ -67,10 +67,11 @@
     "package": "npx vsce package"
   },
   "dependencies": {
+    "@chroma-core/default-embed": "^0.1.8",
     "@tensorflow/tfjs-node": "^4.22.0",
     "@vscode/chat-extension-utils": "^0.0.0-alpha.1",
     "@vscode/prompt-tsx": "^0.3.0-alpha.12",
-    "chromadb": "^2.1.0"
+    "chromadb": "3.0.10"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",

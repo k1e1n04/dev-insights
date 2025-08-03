@@ -2,7 +2,7 @@ import * as assert from "assert";
 import * as sinon from "sinon";
 import * as crypto from "crypto";
 import { ChromaDBClient } from "../../../db-clients/chromaDBClient";
-import { ChromaClient, Collection, IncludeEnum } from "chromadb";
+import { ChromaClient, Collection, IncludeEnum, QueryResult } from "chromadb";
 
 suite("ChromaDBClient Tests", () => {
   let client: ChromaDBClient;
@@ -62,10 +62,14 @@ suite("ChromaDBClient Tests", () => {
 
     mockCollection.get.resolves({
       ids: [],
-      embeddings: null,
+      embeddings: [],
       documents: [],
       metadatas: [],
-      included: [],
+      include: [],
+      uris: [],
+      rows() {
+        return [];
+      }
     });
 
     await client.initializeCollection();
@@ -94,10 +98,14 @@ suite("ChromaDBClient Tests", () => {
 
     mockCollection.get.resolves({
       ids: [mockDocumentId],
-      embeddings: null,
+      embeddings: [],
       documents: [mockFileContent],
       metadatas: [],
-      included: [],
+      include: [],
+      uris: [],
+      rows() {
+        return [];
+      }
     });
 
     await client.initializeCollection();
@@ -132,13 +140,17 @@ suite("ChromaDBClient Tests", () => {
 
   test("should perform a query and return results", async () => {
     const mockPrompt = "search query";
-    const mockResults = {
+    const mockResults: QueryResult = {
       ids: [["id1", "id2"]],
-      embeddings: null,
+      embeddings: [],
       documents: [["doc1"], ["doc2"]],
       metadatas: [[null, null]],
       distances: [[0.1, 0.2]],
-      included: ["documents"] as IncludeEnum[],
+      include: ["documents"] as IncludeEnum[],
+      uris: [],
+      rows() {
+        return [];
+      }
     };
 
     mockCollection.query.resolves(mockResults);
@@ -155,13 +167,17 @@ suite("ChromaDBClient Tests", () => {
 
   test("should handle empty query results", async () => {
     const mockPrompt = "search query";
-    const mockResults = {
+    const mockResults: QueryResult = {
       ids: [[]],
-      embeddings: null,
+      embeddings: [[]],
       documents: [[]],
       metadatas: [[]],
       distances: [[]],
-      included: ["documents"] as IncludeEnum[],
+      include: ["documents"] as IncludeEnum[],
+      uris: [],
+      rows() {
+        return [];
+      }
     };
 
     mockCollection.query.resolves(mockResults);

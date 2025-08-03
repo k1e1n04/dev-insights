@@ -14,6 +14,8 @@ export const dbClientFactory = (type: VectorDBClientType): VectorDBClient => {
     case "Chroma":
       chromaClient = new ChromaClient({
         path: DB_ENDPOINT,
+        tenant: "default_tenant",
+        database: "default_database",
       });
       return new ChromaDBClient(chromaClient);
     default:
