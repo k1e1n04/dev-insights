@@ -5,8 +5,10 @@
     "lib": ["ES2022", "DOM"],
     "sourceMap": true,
     "rootDir": "src",
-    "strict": true,
     "outDir": "out",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
     "jsx": "react",
     "jsxFactory": "vscpp",
     "jsxFragmentFactory": "vscppf"
