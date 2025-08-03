@@ -15,6 +15,8 @@
 | ベンダー       | モデル名 |
 | -------------- | -------- |
 | GitHub Copilot | `gpt-4o` |
+| GitHub Copilot | `gpt-4o-mini` |
+| GitHub Copilot | `claude-3.5-sonnet` |
 
 ## サポートするベクターDB
 

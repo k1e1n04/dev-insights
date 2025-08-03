@@ -26,6 +26,16 @@
           "type": "number",
           "default": 5,
           "description": "VectorDB から取得する最大結果数を指定します。"
+        },
+        "devInsights.modelName": {
+          "type": "string",
+          "enum": [
+            "gpt-4o",
+            "gpt-4o-mini",
+            "claude-3.5-sonnet"
+          ],
+          "default": "gpt-4o",
+          "description": "使用するモデルの名前を指定します。"
         }
       }
     },

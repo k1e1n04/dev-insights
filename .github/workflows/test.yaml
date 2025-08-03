@@ -46,7 +46,7 @@ jobs:
       - name: Setup Virtual Display (Xvfb)
         run: |
           sudo apt-get update
-          sudo apt-get install -y xvfb=2:21.1.12-1ubuntu1.2
+          sudo apt-get install -y xvfb
           Xvfb :99 -screen 0 1024x768x24 &
 
       - name: Run Tests
