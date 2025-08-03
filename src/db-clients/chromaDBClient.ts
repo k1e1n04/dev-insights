@@ -1,7 +1,7 @@
 import { ChromaClient, Collection, Metadata } from "chromadb";
+import { DefaultEmbeddingFunction } from "@chroma-core/default-embed";
 import * as crypto from "crypto";
 import { VectorDBClient } from "./vectorDBClient";
-import { DefaultEmbeddingFunction } from "@chroma-core/default-embed";
 
 const VECTOR_DB_COLLECTION_NAME = "markdown_documents";
 
@@ -17,16 +17,18 @@ interface DocumentMetadata extends Metadata {
 export class ChromaDBClient implements VectorDBClient {
   private client: ChromaClient;
   private collection: Collection | null = null;
+  private embeddingFunction: DefaultEmbeddingFunction;
 
   constructor(client: ChromaClient) {
     this.client = client;
+    this.embeddingFunction = new DefaultEmbeddingFunction();
   }
 
   async initializeCollection(): Promise<void> {
     try {
       this.collection = await this.client.getOrCreateCollection({
         name: VECTOR_DB_COLLECTION_NAME,
-        embeddingFunction: new DefaultEmbeddingFunction(),
+        embeddingFunction: this.embeddingFunction,
       });
     } catch (error) {
       throw new Error(`コレクションの初期化に失敗しました: ${error}`);
