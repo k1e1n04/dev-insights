@@ -10,3 +10,7 @@ export const MAX_RESULTS: number = config.get(
   "documentVectorDB.maxResults",
   5,
 );
+export const MODEL_NAME: string = config.get(
+  "modelName",
+  "gpt-4o",
+);
