@@ -33,9 +33,11 @@ suite("ChromaDBClient Tests", () => {
   test("should successfully initialize the collection", async () => {
     await client.initializeCollection();
     sinon.assert.calledOnce(mockChromaClient.getOrCreateCollection);
-    sinon.assert.calledWith(mockChromaClient.getOrCreateCollection, {
-      name: "markdown_documents",
-    });
+    
+    // 埋め込み関数が含まれることを考慮した引数チェック
+    const callArgs = mockChromaClient.getOrCreateCollection.firstCall.args[0];
+    assert.strictEqual(callArgs.name, "markdown_documents");
+    assert.ok(callArgs.embeddingFunction, "embeddingFunction should be present");
   });
 
   test("should handle errors during collection initialization", async () => {

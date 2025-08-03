@@ -3,7 +3,7 @@ import glob from "glob";
 import * as path from "path";
 
 export function run(): Promise<void> {
-  const mocha = new Mocha({ ui: "tdd" }); // ✅ これでOK
+  const mocha = new Mocha({ ui: "tdd" });
 
   const testsRoot = path.resolve(__dirname, "..");
 
