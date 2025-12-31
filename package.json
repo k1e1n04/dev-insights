@@ -70,7 +70,7 @@
     "@tensorflow/tfjs-node": "^4.22.0",
     "@vscode/chat-extension-utils": "^0.0.0-alpha.1",
     "@vscode/prompt-tsx": "^0.3.0-alpha.12",
-    "chromadb": "^2.1.0"
+    "chromadb": "^3.2.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.13.0",
